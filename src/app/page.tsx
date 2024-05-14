@@ -8,7 +8,7 @@ const RedirectPage = () => {
     const router = useRouter();
 
     useEffect(() => {
-        router.push(paths.dashboard.home);
+        router.push(paths.product.list);
     }, [router]);
 
     return null;
