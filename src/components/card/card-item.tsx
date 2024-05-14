@@ -41,6 +41,8 @@ export default function CardItem({ product, onEdit, onDisable }: Props) {
             <CardMedia
                 component="img"
                 height="140"
+                width="100%"
+                sx={{objectFit: "contain",background:"none"}}
                 image={concatImgUrl(product.image)}
                 alt={concatImgUrl(product.image)}
             />
