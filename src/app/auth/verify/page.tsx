@@ -52,7 +52,7 @@ export default function Verify() {
             });
 
             setSession(res.data.access_token);
-            router.push(paths.dashboard.home);
+            router.push(paths.product.list);
         } catch (err) {
             setErrorMsg(typeof err === "string" ? err : (err as Error).message);
         }
