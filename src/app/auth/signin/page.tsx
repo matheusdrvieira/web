@@ -26,8 +26,8 @@ export default function SignIn() {
     const router = useRouter();
 
     const defaultValues = {
-        email: "matheus@gmail.com",
-        password: "Abc123!"
+        email: "",
+        password: ""
     };
 
     const methods = useForm<SignInFormData>({
