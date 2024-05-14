@@ -1,7 +1,7 @@
 "use client";
 
 import CompactLayout from "@/layout/compact-layout";
-import { ReactNode } from "react";
+import { ReactNode, Suspense } from "react";
 
 type Props = {
     children: ReactNode;
@@ -9,6 +9,10 @@ type Props = {
 
 export default function ForgotLayout({ children }: Props) {
     return (
-        <CompactLayout>{children}</CompactLayout>
+        <Suspense>
+            <CompactLayout>
+                {children}
+            </CompactLayout>
+        </Suspense>
     );
 }

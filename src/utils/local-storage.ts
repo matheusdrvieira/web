@@ -1,8 +1,9 @@
 import { User } from "@/types/user";
+import { getLocalStorage } from "./storage/local-storage";
 
-export const getLocalStorage = (): User | null => {
+export const getUserFromLocalStorage = (): User | null => {
     const USER_INFO = "user_info";
-    const userString = localStorage.getItem(USER_INFO);
+    const userString = getLocalStorage(USER_INFO);
 
     if (!userString) return null;
 

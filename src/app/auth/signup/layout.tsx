@@ -1,10 +1,8 @@
+"use client";
+
 import { GuestGuard } from "@/guard/guest-guard";
 import { AuthLayout } from "@/layout/auth-layout";
 import { ReactNode } from "react";
-
-export const metadata = {
-    title: "E-commerce | Criar sua conta no e-commerce",
-};
 
 export default function SignUpLayout({
     children

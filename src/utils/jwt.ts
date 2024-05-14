@@ -1,5 +1,7 @@
 import axiosInstance from "@/service/axios";
 import { User } from "@/types/user";
+import { removeLocalStorage, setLocalStorage } from "./storage/local-storage";
+import { getSessionStorage, removeSessionStorage, setSessionStorage } from "./storage/session-storage";
 
 export function jwtDecode(token: string) {
     const base64Url = token.split(".")[1];
@@ -20,19 +22,19 @@ export const setSession = (access_token: string | null) => {
     const USER_INFO = "user_info";
 
     if (access_token) {
-        sessionStorage.setItem(ACCESS_TOKEN, access_token);
+        setSessionStorage(ACCESS_TOKEN, access_token);
 
         axiosInstance.defaults.headers.common.Authorization = `Bearer ${access_token}`;
 
         const user = jwtDecode(access_token);
 
-        localStorage.setItem(USER_INFO, JSON.stringify(user));
+        setLocalStorage(USER_INFO, JSON.stringify(user));
 
         return user;
     } else {
-        sessionStorage.removeItem(ACCESS_TOKEN);
+        removeSessionStorage(ACCESS_TOKEN);
 
-        localStorage.removeItem(USER_INFO);
+        removeLocalStorage(USER_INFO);
 
         delete axiosInstance.defaults.headers.common.Authorization;
     }
@@ -40,7 +42,7 @@ export const setSession = (access_token: string | null) => {
 
 export function getUser(): User | null {
     const ACCESS_TOKEN = "access_token";
-    const access_token = sessionStorage.getItem(ACCESS_TOKEN);
+    const access_token = getSessionStorage(ACCESS_TOKEN);
 
     if (!access_token) return null;
 

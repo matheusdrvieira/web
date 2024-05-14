@@ -1,7 +1,7 @@
 "use client";
 
 import { paths } from "@/components/routes/paths";
-import { getLocalStorage } from "@/utils/local-storage";
+import { getUserFromLocalStorage } from "@/utils/local-storage";
 import { useRouter } from "next/navigation";
 import { ReactNode, useEffect } from "react";
 
@@ -12,7 +12,7 @@ type Props = {
 const USER_PENDING_STATUS = "PENDING";
 
 export function AuthGuard({ children }: Props) {
-    const user = getLocalStorage();
+    const user = getUserFromLocalStorage();
     const router = useRouter();
 
     useEffect(() => {
