@@ -1,4 +1,4 @@
-import { useCallback, useState } from 'react';
+import { useCallback, useState } from "react";
 
 type ReturnType = {
   onClose: VoidFunction;
@@ -8,20 +8,20 @@ type ReturnType = {
 };
 
 export default function usePopover(): ReturnType {
-  const [open, setOpen] = useState<HTMLElement | null>(null);
+    const [open, setOpen] = useState<HTMLElement | null>(null);
 
-  const onOpen = useCallback((event: React.MouseEvent<HTMLElement>) => {
-    setOpen(event.currentTarget);
-  }, []);
+    const onOpen = useCallback((event: React.MouseEvent<HTMLElement>) => {
+        setOpen(event.currentTarget);
+    }, []);
 
-  const onClose = useCallback(() => {
-    setOpen(null);
-  }, []);
+    const onClose = useCallback(() => {
+        setOpen(null);
+    }, []);
 
-  return {
-    open,
-    onOpen,
-    onClose,
-    setOpen,
-  };
+    return {
+        open,
+        onOpen,
+        onClose,
+        setOpen,
+    };
 }
